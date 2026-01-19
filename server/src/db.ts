@@ -1,7 +1,8 @@
+import path from "path";
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 
-const DB_PATH = new URL("../data/forumapp.db", import.meta.url).pathname;
+const DB_PATH = path.join(__dirname, "..", "data", "forumapp.db");
 
 export async function openDb() {
   const db = await open({

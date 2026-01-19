@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { openDb } from "./db.js";
+import { openDb } from "./db";
 
 const app = express();
 const port = process.env.PORT ? Number(process.env.PORT) : 3001;
