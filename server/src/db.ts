@@ -1,10 +1,13 @@
+import fs from "fs";
 import path from "path";
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 
-const DB_PATH = path.join(__dirname, "..", "data", "forumapp.db");
+const DATA_DIR = path.join(__dirname, "..", "data");
+const DB_PATH = path.join(DATA_DIR, "forumapp.db");
 
 export async function openDb() {
+  await fs.promises.mkdir(DATA_DIR, { recursive: true });
   const db = await open({
     filename: DB_PATH,
     driver: sqlite3.Database,
